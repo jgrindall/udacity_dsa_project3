@@ -1,0 +1,13 @@
+# Test basic
+>>> from problem_1 import Sqrt
+>>> Sqrt.sqrt(9)
+3
+>>> Sqrt.sqrt(0)
+0
+>>> Sqrt.sqrt(16)
+4
+>>> Sqrt.sqrt(1)
+1
+>>> Sqrt.sqrt(27)
+5
+

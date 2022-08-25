@@ -1,0 +1,133 @@
+# Test basic
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([0])
+[0]
+>>> DutchFlag.sort([1])
+[1]
+>>> DutchFlag.sort([2])
+[2]
+
+
+# Test basic - 2
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([0, 0])
+[0, 0]
+>>> DutchFlag.sort([0, 1])
+[0, 1]
+>>> DutchFlag.sort([1, 0])
+[0, 1]
+>>> DutchFlag.sort([0, 2])
+[0, 2]
+>>> DutchFlag.sort([2, 0])
+[0, 2]
+>>> DutchFlag.sort([1, 2])
+[1, 2]
+>>> DutchFlag.sort([2, 1])
+[1, 2]
+
+
+
+# Test basic - 3
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([0, 0, 0])
+[0, 0, 0]
+>>> DutchFlag.sort([1, 1, 1])
+[1, 1, 1]
+>>> DutchFlag.sort([2, 2, 2])
+[2, 2, 2]
+>>> DutchFlag.sort([0, 1, 2])
+[0, 1, 2]
+>>> DutchFlag.sort([2, 1, 0])
+[0, 1, 2]
+>>> DutchFlag.sort([0, 1, 0])
+[0, 0, 1]
+>>> DutchFlag.sort([1, 1, 0])
+[0, 1, 1]
+>>> DutchFlag.sort([1, 2, 2])
+[1, 2, 2]
+>>> DutchFlag.sort([0, 2, 0])
+[0, 0, 2]
+
+
+
+
+# Test from the rubric
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2])
+[0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2]
+
+
+# Test from the rubric
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([0,1,2,1,2,0,1,2,1,0,0,1,2,0,2,0,2,1,2,0,2,1,2])
+[0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+
+
+# Test from the rubric
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2])
+[0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2]
+
+
+# Test from the rubric
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([2, 1, 2, 0, 0, 2, 1, 0, 1, 0, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, 2, 0, 0, 1])
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+
+
+
+
+# Test large 01
+>>> import random
+>>> from problem_4 import DutchFlag
+>>> a = []
+>>> for i in range(10000):
+...   a.append(random.choice([0, 1]))
+>>> b = DutchFlag.sort(a)
+>>> sorted(a) == b
+True
+
+
+# Test large 02
+>>> import random
+>>> from problem_4 import DutchFlag
+>>> a = []
+>>> for i in range(10000):
+...   a.append(random.choice([0, 2]))
+>>> b = DutchFlag.sort(a)
+>>> sorted(a) == b
+True
+
+
+# Test large 12
+>>> import random
+>>> from problem_4 import DutchFlag
+>>> a = []
+>>> for i in range(10000):
+...   a.append(random.choice([1, 2]))
+>>> b = DutchFlag.sort(a)
+>>> sorted(a) == b
+True
+
+
+# Test large 012
+>>> import random
+>>> from problem_4 import DutchFlag
+>>> a = []
+>>> for i in range(10000):
+...   a.append(random.choice([0, 1, 2]))
+>>> b = DutchFlag.sort(a)
+>>> sorted(a) == b
+True
+
+
+
+
+
+
+
+
+
+
+
+

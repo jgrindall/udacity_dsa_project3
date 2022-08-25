@@ -1,0 +1,48 @@
+# Test basic
+>>> from problem_6 import MinMax
+>>> l = [0]
+>>> MinMax.get_min_max(l)
+(0, 0)
+
+
+# Test basic
+>>> from problem_6 import MinMax
+>>> l = [1, 0]
+>>> MinMax.get_min_max(l)
+(0, 1)
+
+
+
+# Test basic
+>>> from problem_6 import MinMax
+>>> l = [2, 1, 0, 1, 2]
+>>> MinMax.get_min_max(l)
+(0, 2)
+
+
+
+# Test basic - negative
+>>> from problem_6 import MinMax
+>>> l = [-5, 1, -3, 0, 5, 1, -6, 4]
+>>> MinMax.get_min_max(l)
+(-6, 5)
+
+
+
+# Test from the rubric
+>>> from problem_6 import MinMax
+>>> import random
+>>> l = [i for i in range(0, 10)]
+>>> random.shuffle(l)
+>>> MinMax.get_min_max(l)
+(0, 9)
+
+
+# Test large
+>>> import random
+>>> from problem_6 import MinMax
+>>> l = [i - 500 for i in range(0, 1000)]
+>>> l = l + l + l
+>>> random.shuffle(l)
+>>> MinMax.get_min_max(l)
+(-500, 499)

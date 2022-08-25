@@ -1,0 +1,44 @@
+# Test - from the rubric
+>>> from problem_3 import Rearrange
+>>> a = Rearrange.rearrange_digits([1, 2, 3, 4, 5])
+>>> a
+[531, 42]
+>>> a[0] + a[1]
+573
+
+
+# Test - from the rubric
+>>> from problem_3 import Rearrange
+>>> a = Rearrange.rearrange_digits([4, 6, 2, 5, 9, 8])
+>>> a
+[964, 852]
+>>> a[0] + a[1]
+1816
+
+
+# Test - simple
+>>> from problem_3 import Rearrange
+>>> a = Rearrange.rearrange_digits([1, 1])
+>>> a
+[1, 1]
+>>> a[0] + a[1]
+2
+
+
+# Test - simple
+>>> from problem_3 import Rearrange
+>>> a = Rearrange.rearrange_digits([0, 1])
+>>> a
+[1, 0]
+>>> a[0] + a[1]
+1
+
+
+# Test - large
+>>> from problem_3 import Rearrange
+>>> b = []
+>>> a = Rearrange.rearrange_digits([0, 1])
+>>> a
+[1, 0]
+>>> a[0] + a[1]
+1

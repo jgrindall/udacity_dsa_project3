@@ -1,0 +1,24 @@
+# Test basic
+>>> from problem_5 import Trie, TrieNode
+>>> t = Trie()
+>>> wordList = ["ant", "anthology", "antagonist", "antonym", "fun", "function", "factory", "trie", "trigger", "trigonometry", "tripod"]
+>>> for word in wordList:
+...   t.insert(word)
+>>> prefix_node = t.find("fu")
+>>> prefix_node.value
+'u'
+>>> prefix_node.is_word
+False
+>>> len(prefix_node.children)
+1
+>>> prefix_node.get_suffixes()
+['n', 'nction']
+>>> prefix_node = t.find("fun")
+>>> prefix_node.value
+'n'
+>>> prefix_node.is_word
+True
+>>> len(prefix_node.children)
+1
+>>> prefix_node.get_suffixes()
+['ction']

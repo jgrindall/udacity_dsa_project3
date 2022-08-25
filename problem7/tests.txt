@@ -1,0 +1,41 @@
+# Test basic
+>>> from problem_7 import Router
+>>> router = Router("root handler", "not found handler")
+>>> router.lookup("/")
+'root handler'
+
+
+# Test basic
+>>> from problem_7 import Router
+>>> router = Router("root handler", "not found handler")
+>>> router.lookup("/a")
+'not found handler'
+
+
+
+# Test basic
+>>> from problem_7 import Router
+>>> router = Router("root handler", "not found handler")
+>>> router.lookup("/a/")
+'not found handler'
+
+
+
+
+
+# Test basic
+>>> from problem_7 import Router
+>>> router = Router("root handler", "not found handler")
+>>> router.add_handler("/home/about", "about handler")
+>>> router.lookup("/")
+'root handler'
+>>> router.lookup("/home")
+'not found handler'
+>>> router.lookup("/home/about")
+'about handler'
+>>> router.lookup("/home/about/")
+'about handler'
+>>> router.lookup("/home/about/me")
+'not found handler'
+
+
