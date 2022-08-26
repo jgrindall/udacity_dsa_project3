@@ -1,97 +1,120 @@
-# Test basic
->>> from problem_2 import FileUtils
->>> files = FileUtils.find_files(".txt", "./test1")
->>> print(files)
-['./test1\\a\\a.py.txt', './test1\\a\\a.txt', './test1\\a.py.txt', './test1\\a.txt', './test1\\b\\a\\a.py.txt', './test1\\b\\a\\a.txt', './test1\\b\\a.py.txt', './test1\\b\\a.txt', './test1\\b\\b\\a.py.txt', './test1\\b\\b\\a.txt', './test1\\b\\c\\a.py.txt', './test1\\b\\c\\a.txt', './test1\\c\\a\\a\\a.py.txt', './test1\\c\\a\\a\\a.txt', './test1\\c\\a\\a.py.txt', './test1\\c\\a\\a.txt', './test1\\c\\a.py.txt', './test1\\c\\a.txt', './test1\\c\\b\\a.py.txt', './test1\\c\\b\\a.txt', './test1\\c\\b\\b\\a.py.txt', './test1\\c\\b\\b\\a.txt', './test1\\c\\c\\a.py.txt', './test1\\c\\c\\a.txt', './test1\\c\\c\\c\\a.py.txt', './test1\\c\\c\\c\\a.txt']
->>> len(files)
-26
+# Test find_pivot
+>>> from problem_2 import RotatedArray
+>>> RotatedArray.find_pivot([0, 1, 2, 3, 4, 5, 6])
+0
+>>> RotatedArray.find_pivot([6, 0, 1, 2, 3, 4, 5])
+1
+>>> RotatedArray.find_pivot([5, 6, 0, 1, 2, 3, 4])
+2
+>>> RotatedArray.find_pivot([4, 5, 6, 0, 1, 2, 3])
+3
+>>> RotatedArray.find_pivot([3, 4, 5, 6, 0, 1, 2])
+4
+>>> RotatedArray.find_pivot([2, 3, 4, 5, 6, 0, 1])
+5
+>>> RotatedArray.find_pivot([1, 2, 3, 4, 5, 6, 0])
+6
+
+
+
+# Test search - unrotated
+>>> from problem_2 import RotatedArray
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 0)
+0
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 1)
+1
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 2)
+2
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 3)
+3
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 4)
+4
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 5)
+5
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 6)
+6
+>>> RotatedArray.rotated_array_search([0, 1, 2, 3, 4, 5, 6], 100)
+-1
+
+
+
+
+
+# Test search
+>>> from problem_2 import RotatedArray
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 0)
+4
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 1)
+5
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 2)
+6
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 3)
+0
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 4)
+1
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 5)
+2
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 6)
+3
+>>> RotatedArray.rotated_array_search([3, 4, 5, 6, 0, 1, 2], 100)
+-1
+
+
+
+# Test fully rotated
+>>> from problem_2 import RotatedArray
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 0)
+1
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 1)
+2
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 2)
+3
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 3)
+4
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 4)
+5
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 5)
+6
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 6)
+0
+>>> RotatedArray.rotated_array_search([6, 0, 1, 2, 3, 4, 5], 100)
+-1
+
+
+# Test large unrotated
+>>> from problem_2 import RotatedArray
+>>> a = list(range(1000))
+>>> RotatedArray.find_pivot(a)
+0
+>>> RotatedArray.rotated_array_search(a, 50)
+50
+>>> RotatedArray.rotated_array_search(a, 999)
+999
+>>> RotatedArray.rotated_array_search(a, 1000)
+-1
+
+
+
+
+# Test large
+>>> from problem_2 import RotatedArray
+>>> a = list(range(500, 1000)) + list(range(0, 500))
+>>> RotatedArray.find_pivot(a)
+500
+>>> RotatedArray.rotated_array_search(a, 50)
+550
+>>> RotatedArray.rotated_array_search(a, 500)
+0
+>>> RotatedArray.rotated_array_search(a, 999)
+499
+>>> RotatedArray.rotated_array_search(a, 1000)
+-1
 
 
 
 
 
 
-print(find_pivot([0, 1, 2, 3, 4, 5, 6]))
-print(find_pivot([6, 0, 1, 2, 3, 4, 5]))
-print(find_pivot([5, 6, 0, 1, 2, 3, 4]))
-print(find_pivot([4, 5, 6, 0, 1, 2, 3]))
-print(find_pivot([3, 4, 5, 6, 0, 1, 2]))
-print(find_pivot([2, 3, 4, 5, 6, 0, 1]))
-print(find_pivot([1, 2, 3, 4, 5, 6, 0]))
-
-
-test_function([0, 1, 2, 3, 4, 5, 6], 0)
-test_function([6, 0, 1, 2, 3, 4, 5], 0)
-test_function([5, 6, 0, 1, 2, 3, 4], 0)
-test_function([4, 5, 6, 0, 1, 2, 3], 0)
-test_function([3, 4, 5, 6, 0, 1, 2], 0)
-test_function([2, 3, 4, 5, 6, 0, 1], 0)
-test_function([1, 2, 3, 4, 5, 6, 0], 0)
-
-test_function([0, 1, 2, 3, 4, 5, 6], 1)
-test_function([6, 0, 1, 2, 3, 4, 5], 1)
-test_function([5, 6, 0, 1, 2, 3, 4], 1)
-test_function([4, 5, 6, 0, 1, 2, 3], 1)
-test_function([3, 4, 5, 6, 0, 1, 2], 1)
-test_function([2, 3, 4, 5, 6, 0, 1], 1)
-test_function([1, 2, 3, 4, 5, 6, 0], 1)
-
-test_function([0, 1, 2, 3, 4, 5, 6], 2)
-test_function([6, 0, 1, 2, 3, 4, 5], 2)
-test_function([5, 6, 0, 1, 2, 3, 4], 2)
-test_function([4, 5, 6, 0, 1, 2, 3], 2)
-test_function([3, 4, 5, 6, 0, 1, 2], 2)
-test_function([2, 3, 4, 5, 6, 0, 1], 2)
-test_function([1, 2, 3, 4, 5, 6, 0], 2)
-
-test_function([0, 1, 2, 3, 4, 5, 6], 3)
-test_function([6, 0, 1, 2, 3, 4, 5], 3)
-test_function([5, 6, 0, 1, 2, 3, 4], 3)
-test_function([4, 5, 6, 0, 1, 2, 3], 3)
-test_function([3, 4, 5, 6, 0, 1, 2], 3)
-test_function([2, 3, 4, 5, 6, 0, 1], 3)
-test_function([1, 2, 3, 4, 5, 6, 0], 3)
-
-test_function([0, 1, 2, 3, 4, 5, 6], 4)
-test_function([6, 0, 1, 2, 3, 4, 5], 4)
-test_function([5, 6, 0, 1, 2, 3, 4], 4)
-test_function([4, 5, 6, 0, 1, 2, 3], 4)
-test_function([3, 4, 5, 6, 0, 1, 2], 4)
-test_function([2, 3, 4, 5, 6, 0, 1], 4)
-test_function([1, 2, 3, 4, 5, 6, 0], 4)
-
-test_function([0, 1, 2, 3, 4, 5, 6], 5)
-test_function([6, 0, 1, 2, 3, 4, 5], 5)
-test_function([5, 6, 0, 1, 2, 3, 4], 5)
-test_function([4, 5, 6, 0, 1, 2, 3], 5)
-test_function([3, 4, 5, 6, 0, 1, 2], 5)
-test_function([2, 3, 4, 5, 6, 0, 1], 5)
-test_function([1, 2, 3, 4, 5, 6, 0], 5)
-
-
-test_function([0, 1, 2, 3, 4, 5, 6], 6)
-test_function([6, 0, 1, 2, 3, 4, 5], 6)
-test_function([5, 6, 0, 1, 2, 3, 4], 6)
-test_function([4, 5, 6, 0, 1, 2, 3], 6)
-test_function([3, 4, 5, 6, 0, 1, 2], 6)
-test_function([2, 3, 4, 5, 6, 0, 1], 6)
-test_function([1, 2, 3, 4, 5, 6, 0], 6)
-
-test_function([0, 1, 2, 3, 4, 5, 6], 7)
-test_function([6, 0, 1, 2, 3, 4, 5], 7)
-test_function([5, 6, 0, 1, 2, 3, 4], 7)
-test_function([4, 5, 6, 0, 1, 2, 3], 7)
-test_function([3, 4, 5, 6, 0, 1, 2], 7)
-test_function([2, 3, 4, 5, 6, 0, 1], 7)
-test_function([1, 2, 3, 4, 5, 6, 0], 7)
-
-test_function([0, 1, 2, 3, 4, 5, 6], 8)
-test_function([6, 0, 1, 2, 3, 4, 5], 8)
-test_function([5, 6, 0, 1, 2, 3, 4], 8)
-test_function([4, 5, 6, 0, 1, 2, 3], 8)
-test_function([3, 4, 5, 6, 0, 1, 2], 8)
-test_function([2, 3, 4, 5, 6, 0, 1], 8)
-test_function([1, 2, 3, 4, 5, 6, 0], 8)
 
 
 

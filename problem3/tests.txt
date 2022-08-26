@@ -1,3 +1,12 @@
+# Test - helper functions
+>>> from problem_3 import Rearrange
+>>> Rearrange.to_num([5, 4, 1])
+541
+>>> b = Rearrange.bruteforce([5, 4, 1])
+>>> b[0] + b[1]
+55
+
+
 # Test - from the rubric
 >>> from problem_3 import Rearrange
 >>> a = Rearrange.rearrange_digits([1, 2, 3, 4, 5])
@@ -36,9 +45,17 @@
 
 # Test - large
 >>> from problem_3 import Rearrange
->>> b = []
->>> a = Rearrange.rearrange_digits([0, 1])
->>> a
-[1, 0]
->>> a[0] + a[1]
-1
+>>> input = [3, 1, 4, 7, 9]
+>>> b = Rearrange.bruteforce(input)
+>>> a = Rearrange.rearrange_digits(input)
+>>> a[0] + a[1] == b[0] + b[1]
+True
+
+
+# Test - large
+>>> from problem_3 import Rearrange
+>>> input = [3, 1, 4, 0, 5, 3, 7, 8, 1, 7, 9]
+>>> b = Rearrange.bruteforce(input)
+>>> a = Rearrange.rearrange_digits(input)
+>>> a[0] + a[1] == b[0] + b[1]
+True

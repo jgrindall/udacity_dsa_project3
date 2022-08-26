@@ -2,12 +2,66 @@
 >>> from problem_1 import Sqrt
 >>> Sqrt.sqrt(9)
 3
->>> Sqrt.sqrt(0)
-0
 >>> Sqrt.sqrt(16)
 4
+>>> Sqrt.sqrt(25)
+5
+
+
+
+# Test small
+>>> from problem_1 import Sqrt
+>>> Sqrt.sqrt(0)
+0
 >>> Sqrt.sqrt(1)
 1
+>>> Sqrt.sqrt(2)
+1
+>>> Sqrt.sqrt(3)
+1
+>>> Sqrt.sqrt(4)
+2
+>>> Sqrt.sqrt(5)
+2
+
+
+
+# Test non square
+>>> from problem_1 import Sqrt
+>>> Sqrt.sqrt(8)
+2
+>>> Sqrt.sqrt(10)
+3
+>>> Sqrt.sqrt(15)
+3
+>>> Sqrt.sqrt(17)
+4
+>>> Sqrt.sqrt(24)
+4
+>>> Sqrt.sqrt(26)
+5
 >>> Sqrt.sqrt(27)
 5
+
+
+
+# Test large
+>>> from problem_1 import Sqrt
+>>> Sqrt.sqrt(560363033476) # 748574  squared
+748574
+
+>>> Sqrt.sqrt(560364530625) # 748575  squared
+748575
+
+>>> Sqrt.sqrt(560363033475)
+748573
+
+>>> Sqrt.sqrt(560363033477)
+748574
+
+>>> Sqrt.sqrt(560364530624)
+748574
+
+>>> Sqrt.sqrt(560364530627)
+748575
 

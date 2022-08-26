@@ -53,6 +53,17 @@ class TrieNode:
 class Trie:
     def __init__(self):
         self.root = TrieNode("")
+        
+    def get_total_num_nodes(self):
+        n = 0
+        def visit(node):
+            nonlocal n
+            for key in node.children:
+                n += 1
+                visit(node.children[key])
+        
+        visit(self.root)
+        return n
 
     def insert(self, word):
         # Add a word to the Trie
@@ -74,7 +85,11 @@ class Trie:
             else:
                 return None
         return node
-
-
+    
+    def get_suffixes(self, prefix):
+        prefix_node = self.find(prefix)
+        if prefix_node is None:
+            return []
+        return prefix_node.get_suffixes()
 
 

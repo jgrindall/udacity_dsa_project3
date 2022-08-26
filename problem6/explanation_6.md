@@ -1,6 +1,6 @@
 # Explanation
 
-This is a straightforward scan
+This is a straightforward scan, keeping track of the min and max.
 
 # Analysis
 

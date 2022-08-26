@@ -32,7 +32,11 @@ class Sqrt:
             else:
                 estimate0 = midpoint
         
-        midpoint = (estimate0 + estimate1)/2
-        return int(midpoint + 0.5)
+        floor0 = int(estimate0 - estimate0 % 1)
+        floor1 = int(estimate1 - estimate1 % 1)
+
+        if floor1*floor1 <= number:
+            return floor1
+        return floor0
         
 

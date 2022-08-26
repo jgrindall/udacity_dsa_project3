@@ -1,16 +1,7 @@
 # Explanation
 
-To find the union and intersection of two linked lists I sort them first.
+The Trie implementation and TrieNode are similar to problem 6.
 
-Once the two lists are sorted the union/intersection algorithms become very simple.
-
-Store two pointers into the lists, check what values they point at and 
-
-* for union, we add the smallest one while we can and advance the pointer when we can't add any more.
-We need to check any left-overs too.
-
-* for intersection we just advance the smallest valued pointer and add when our values are equal
-There is no need to check left overs, since they will definitely not be in both lists.
 
 # Analysis
 

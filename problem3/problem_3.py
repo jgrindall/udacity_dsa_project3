@@ -36,7 +36,6 @@ class Node:
          return self.__repr__()
 
 
-
 class MinHeap:
     def __init__(self, elements = []):
         self.elements = []
@@ -160,13 +159,72 @@ class MinHeap:
 class Rearrange:
     
     @staticmethod
+    
     def bruteforce(input_list):
-        #check all possibilities
         
-        pass
-
+        n = len(input_list)
+        
+        sorted_list = sorted(input_list)
+        
+        #check all possibilities
+        subsets = [[]]
+        
+        def append_using(item):
+            new_subsets = []
+            for s in subsets:
+                clone = s.copy()
+                clone.append(item)
+                new_subsets.append(clone)
+            return new_subsets
+        
+        for item in input_list:
+            subsets = subsets + append_using(item)
+        
+        subsets = list(filter(lambda s: len(s) <= int((n + 1)//2) and len(s) >= int(n//2), subsets))
+            
+        max_sum = -float('inf')
+        best_pair = None
+        
+        for s1 in subsets:
+            for s2 in subsets:
+                if abs(len(s1) - len(s2)) <= 1 and sorted(s1 + s2) == sorted_list:
+                    #candidate
+                    s1 = sorted(s1, reverse=True)
+                    s2 = sorted(s2, reverse=True)
+                    n1 = Rearrange.to_num(s1)
+                    n2 = Rearrange.to_num(s2)
+                    sum = n1 + n2
+                    if sum > max_sum:
+                        max_sum = sum
+                        best_pair = [n1, n2]
+        
+        return best_pair
+    
+    
+    @staticmethod
+    def to_num(arr):
+        """ [5, 4, 1] -> 541"""
+        arr = arr.copy()
+        n = 0
+        place_val = 1
+        while len(arr) >= 1:
+            val = arr.pop()
+            n += place_val * val
+            place_val *= 10
+        return n
+    
     @staticmethod
     def rearrange_digits(input_list):
+        
+        """
+        Rearrange Array Elements so as to form two number such that their sum is maximum.
+    
+        Args:
+           input_list(list): Input List
+        Returns:
+           (int),(int): Two maximum sums
+        """
+        
         heap = MinHeap()
         for item in input_list:
             heap.insert(Node(item))
@@ -186,23 +244,5 @@ class Rearrange:
                 list_to_use = b
             else:
                 list_to_use = a
-            
-        """
-        Rearrange Array Elements so as to form two number such that their sum is maximum.
-    
-        Args:
-           input_list(list): Input List
-        Returns:
-           (int),(int): Two maximum sums
-        """
-        
-        def to_num(arr):
-            n = 0
-            place_val = 1
-            while len(arr) >= 1:
-                val = arr.pop()
-                n += place_val * val
-                place_val *= 10
-            return n
-    
-        return [to_num(a), to_num(b)]
+
+        return [Rearrange.to_num(a), Rearrange.to_num(b)]
