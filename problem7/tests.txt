@@ -5,7 +5,7 @@
 'root handler'
 
 
-# Test basic
+# Test basic - not found
 >>> from problem_7 import Router
 >>> router = Router("root handler", "not found handler")
 >>> router.lookup("/a")
@@ -13,7 +13,7 @@
 
 
 
-# Test basic
+# Test basic - not found
 >>> from problem_7 import Router
 >>> router = Router("root handler", "not found handler")
 >>> router.lookup("/a/")
@@ -21,9 +21,7 @@
 
 
 
-
-
-# Test basic
+# Test with slashes
 >>> from problem_7 import Router
 >>> router = Router("root handler", "not found handler")
 >>> router.add_handler("/home/about", "about handler")
@@ -33,9 +31,63 @@
 'not found handler'
 >>> router.lookup("/home/about")
 'about handler'
+>>> router.lookup("//home//about/")
+'about handler'
 >>> router.lookup("/home/about/")
 'about handler'
 >>> router.lookup("/home/about/me")
 'not found handler'
+>>> router.lookup("/home//about/me/")
+'not found handler'
+>>> router.lookup("/about")
+'not found handler'
+>>> router.lookup("/about/")
+'not found handler'
+
+
+
+# Test intermediate paths
+>>> from problem_7 import Router
+>>> router = Router("root handler", "not found handler")
+>>> router.add_handler("/home/about/me/name", "about handler")
+>>> router.lookup("/")
+'root handler'
+>>> router.lookup("/home")
+'not found handler'
+>>> router.lookup("/home/about")
+'not found handler'
+
+
+
+
+# Test error
+>>> from problem_7 import Router
+>>> router = Router("root handler", "not found handler")
+>>> msg = ""
+>>> try:
+...    router.add_handler("home/about/me/name", "about handler")
+... except ValueError as e:
+...    msg = str(e)
+>>> print(msg)
+Invalid route
+
+
+
+
+
+# Test error
+>>> from problem_7 import Router
+>>> router = Router("root handler", "not found handler")
+>>> msg = ""
+>>> try:
+...    router.add_handler("/home/about/", "about handler")
+...    router.lookup("test")
+... except ValueError as e:
+...    msg = str(e)
+>>> print(msg)
+Invalid route
+
+
+
 
 
