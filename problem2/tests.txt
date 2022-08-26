@@ -113,6 +113,72 @@
 
 
 
+# Test edge case - small arrays
+>>> from problem_2 import RotatedArray
+>>> RotatedArray.find_pivot([0, 1])
+0
+>>> RotatedArray.rotated_array_search([0, 1], 0)
+0
+>>> RotatedArray.rotated_array_search([0, 1], 1)
+1
+>>> RotatedArray.rotated_array_search([0, 1], 2)
+-1
+>>> RotatedArray.find_pivot([1, 0])
+1
+>>> RotatedArray.rotated_array_search([1, 0], 0)
+1
+>>> RotatedArray.rotated_array_search([1, 0], 1)
+0
+>>> RotatedArray.rotated_array_search([1, 0], 2)
+-1
+>>> RotatedArray.find_pivot([0])
+0
+>>> RotatedArray.rotated_array_search([0], 0)
+0
+>>> RotatedArray.rotated_array_search([0], 1)
+-1
+>>> RotatedArray.find_pivot([1])
+0
+>>> RotatedArray.rotated_array_search([1], 0)
+-1
+>>> RotatedArray.rotated_array_search([1], 1)
+0
+>>> RotatedArray.find_pivot([7])
+0
+>>> RotatedArray.rotated_array_search([7], 0)
+-1
+>>> RotatedArray.rotated_array_search([7], 1)
+-1
+>>> RotatedArray.rotated_array_search([7], 7)
+0
+>>> msg = ""
+>>> try:
+...   RotatedArray.find_pivot([])
+... except ValueError as e:
+...    msg = str(e)
+>>> print(msg)
+length cannot be 0
+>>> msg = ""
+>>> try:
+...   RotatedArray.rotated_array_search([], 0)
+... except ValueError as e:
+...    msg = str(e)
+>>> print(msg)
+length cannot be 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

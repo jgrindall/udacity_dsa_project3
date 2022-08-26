@@ -8,6 +8,11 @@ class MinMax():
             ints(list): list of integers containing one or more integers
             """
             
+        n = len(ints)
+        
+        if n == 0:
+            raise ValueError("length cannot be 0")
+            
         min = float('inf')
         max = -float('inf')
     

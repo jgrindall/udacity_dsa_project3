@@ -225,6 +225,11 @@ class Rearrange:
            (int),(int): Two maximum sums
         """
         
+        n = len(input_list)
+        
+        if n <= 1:
+            raise ValueError("at least two numbers are required")
+        
         heap = MinHeap()
         for item in input_list:
             heap.insert(Node(item))

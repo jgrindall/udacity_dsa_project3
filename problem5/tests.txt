@@ -108,3 +108,28 @@ True
 
 
 
+
+# Test edge cases
+>>> from problem_5 import Trie, TrieNode
+>>> t = Trie()
+>>> wordList = ['a']
+>>> for word in wordList:
+...   t.insert(word)
+>>> t.get_suffixes("h")
+[]
+>>> t.get_suffixes("a")
+[]
+
+
+
+
+# Test edge cases
+>>> from problem_5 import Trie, TrieNode
+>>> t = Trie()
+>>> wordList = []
+>>> for word in wordList:
+...   t.insert(word)
+>>> t.get_suffixes("h")
+[]
+
+

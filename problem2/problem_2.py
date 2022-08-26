@@ -98,6 +98,7 @@ class RotatedArray:
         # consider the augmented array, from index p to the end (index p + n - 1)
         p0 = p
         p1 = p + n - 1
+        pmid = p
         
         def get_value(i):
             return input_list[i % n]

@@ -11,4 +11,6 @@ Stop when our estimates are within 0.5 of each other and just check them both.
 # Analysis
 
 
-The algorithm is O(log n) and requires no extra storage.
+The algorithm is O(log n) in terms of time. 
+
+It requires no additional storage other than a few integers, so O(1)

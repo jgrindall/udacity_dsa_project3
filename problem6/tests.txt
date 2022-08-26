@@ -46,3 +46,20 @@
 >>> random.shuffle(l)
 >>> MinMax.get_min_max(l)
 (-500, 499)
+
+
+
+
+# Test edge case
+>>> from problem_6 import MinMax
+>>> msg = ""
+>>> try:
+...   m = MinMax.get_min_max([])
+... except ValueError as e:
+...    msg = str(e)
+>>> print(msg)
+length cannot be 0
+
+
+
+

@@ -1,4 +1,4 @@
-# Test basic
+# Test edge case  - empty
 >>> from problem_7 import Router
 >>> router = Router("root handler", "not found handler")
 >>> router.lookup("/")

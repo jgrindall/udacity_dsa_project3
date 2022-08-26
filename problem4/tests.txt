@@ -123,6 +123,11 @@ True
 
 
 
+# Test edge case
+>>> from problem_4 import DutchFlag
+>>> DutchFlag.sort([])
+[]
+
 
 
 

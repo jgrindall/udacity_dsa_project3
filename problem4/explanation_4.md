@@ -10,6 +10,6 @@ The algorithm is a well known algorithm by Dijkstra, 1976.
 
 In each step either mid is increased, or hi is decreased, so the maximum complexity is O(n).
 
-It requires no extra storage save two pointers.
+It requires no extra storage save two pointers, so O(1)
 
 

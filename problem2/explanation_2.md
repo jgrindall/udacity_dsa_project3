@@ -32,5 +32,5 @@ There is probably a one-step solution to this, but this solution is O(log n) and
 
 In terms of time complexity, both steps are O(log n), so it it O(log n) overall.
 
-No additional storage is required.
+It requires no additional storage other than a constant number of integers, so O(1)
 

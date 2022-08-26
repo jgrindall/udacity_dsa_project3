@@ -59,3 +59,53 @@ True
 >>> a = Rearrange.rearrange_digits(input)
 >>> a[0] + a[1] == b[0] + b[1]
 True
+
+
+
+
+# Test edge case - small arrays
+>>> from problem_3 import Rearrange
+>>> msg = ""
+>>> try:
+...   a = Rearrange.rearrange_digits([0])
+... except ValueError as e:
+...    msg = str(e)
+>>> print(msg)
+at least two numbers are required
+
+
+
+
+
+
+
+# Test edge case - small arrays
+>>> from problem_3 import Rearrange
+>>> msg = ""
+>>> try:
+...   a = Rearrange.rearrange_digits([])
+... except ValueError as e:
+...    msg = str(e)
+>>> print(msg)
+at least two numbers are required
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
